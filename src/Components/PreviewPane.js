@@ -210,6 +210,7 @@ const PreviewPane = ({ wholePageBackground, form, nav, title, sideNav, card, but
 
   //clearing local storage and components?
   const clearComponents = (str) => {
+    const localStorage = window.localStorage || {};
     if (str === "all") {
       // console.log("in local storage", localStorage.getItem("savedNavbar"));
       localStorage.removeItem("savedNavbar");
@@ -252,13 +253,13 @@ const PreviewPane = ({ wholePageBackground, form, nav, title, sideNav, card, but
 
   const handleComponentOnHover = (comp, html, code, filename) => {
     // console.log("hovering on...", comp.name);
-    const downloadCode = () => {
+   /* const downloadCode = () => {
       // console.log("download code clicked");
       const blobForJsx = new Blob([code], { type: "text/plain;charset=utf-8" });
       const blobForHtml = new Blob([html], { type: "text/plain;charset=utf-8" });
       saveAs(blobForJsx, `${filename}_jsx.txt`);
       saveAs(blobForHtml, `${filename}_innerHTML.txt`);
-    };
+    };*/
 
     const favorite = () => {
       // console.log(comp, "has been favorited");
@@ -270,7 +271,7 @@ const PreviewPane = ({ wholePageBackground, form, nav, title, sideNav, card, but
     return (
       <span id="hoverbox">
         {/* hover box for things */}
-        <DownloadIcon onClick={downloadCode}>{`Download code for ${filename}`}</DownloadIcon>
+        {/*<DownloadIcon onClick={downloadCode}>{`Download code for ${filename}`}</DownloadIcon>*/}
         <FavHeart component={comp} />
         <ClearIcon onClick={clear} />
       </span>
@@ -279,12 +280,13 @@ const PreviewPane = ({ wholePageBackground, form, nav, title, sideNav, card, but
 
   //this is broken
   if (!wholePageBackground) {
+    const localStorage = window.localStorage || {};
     const savedWholePageBackground = JSON.parse(localStorage.getItem("savedWholePageBackground"));
     wholePageBackground = savedWholePageBackground;
     // console.log("whole background", wholePageBackground);
   }
 
-  // console.log(config);
+
 
   return (
     <div>

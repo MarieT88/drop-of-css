@@ -13,6 +13,7 @@ const Home = () => {
   const [button, setButton] = useState(null);
   const [generatedColors, setGeneratedColors] = useState(null);
   const [wholePageBackground, setWholePageBackground] = useState("");
+  const localStorage = window.localStorage || {};
 
   // console.log("home", wholePageBackground);
 

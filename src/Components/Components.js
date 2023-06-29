@@ -9,6 +9,7 @@ const Components = ({ openInPreview }) => {
   const { components, cpg } = useSelector((state) => state);
   const [activeType, setActiveType] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
+  //const localStorage = window.localStorage || {};
 
   const handleTypeClick = (type) => {
     setActiveType(type === activeType ? null : type);

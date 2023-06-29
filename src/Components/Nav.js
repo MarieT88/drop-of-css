@@ -9,6 +9,7 @@ const Nav = () => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const localStorage = window.localStorage || {};
 
   const handleLogout = () => {
     localStorage.clear();

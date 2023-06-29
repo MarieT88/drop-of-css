@@ -66,6 +66,7 @@ const ColorGenForm = ({ openColorsInPreview, wholePageBackground, setWholePageBa
   const [items, setItems] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const localStorage = window.localStorage || {};
 
   const dispatch = useDispatch();
 

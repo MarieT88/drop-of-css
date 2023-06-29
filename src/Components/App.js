@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import Home from "./Home";
 import Nav from "./Nav";
 import Login from "./Login";
-import Test from "./Test";
 import Profile from "./Profile";
 import ColorGenForm from "./ColorGenForm";
 import { useSelector, useDispatch } from "react-redux";
@@ -44,14 +43,12 @@ const App = () => {
             <>
               <Route path="/login" element={<Login />} />
               <Route path="/cpgform" element={<ColorGenForm />} />
-              <Route path="/test" element={<Test />} />
               <Route path="/register" element={<UserCreate />} />
             </>
           )}
           {auth.id && (
             <>
               <Route path="/cpgform" element={<ColorGenForm />} />
-              <Route path="/test" element={<Test />} />
               <Route path="/profile" element={<Profile />} />
             </>
           )}
